@@ -123,12 +123,12 @@ bash test.sh
 $AdvancedKDB/IBMtrade.q
 
 The tickerplant logs will be in the folder "scripts"
-$advancedKDB/scripts
+$AdvancedKDB/scripts
 
 Tickerplant log replay:
 
 
-QUESTION: Write a script that reads in a tickerplant log file which contains trade and quote updates and creates a new tickerplant log file which only contains the trade updates for ibm.n.
+QUESTION: Write a script that reads in a tickerplant log file which contains trade and quote updates and creates a new tickerplant log file which only contains the trade updates for IBM 
 
 q IBMtrade.q scripts/sym2022.05.17
 //////////////////////////   EXERCISE 1 - PART 8 - CSV FILE LOAD  /////////////////////////////
