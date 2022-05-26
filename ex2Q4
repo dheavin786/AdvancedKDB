@@ -1,0 +1,12 @@
+QUESTION: Improve the performance of function StringtoDate:{[x]{$[10h~abs type x;x:"D"$x;-14h~ type x;x:x;`date$x]}'[x]} given input: raze 500000#enlist("2010.01.01";2010.01.02). Do not use .Q.fu.
+
+
+q)StringtoDate:{[x]{$[10h~abs type x;x:"D"$x;-14h~ type x;x:x;`date$x]}'[x]}
+q) input: raze 500000#enlist("2010.01.01";2010.01.02)
+q)\ts:1000 StringtoDate input
+910004 20583056
+
+q)StringtoDate:{[x]{if[-14h<>type x;x:"D"$x]}'[x]}
+q)input: raze 500000#enlist("2010.01.01";2010.01.02)
+q)\ts:1000 StringtoDate input
+805119 8388880
