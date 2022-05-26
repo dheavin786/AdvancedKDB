@@ -1,0 +1,240 @@
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////     CLONING GIT REPO & SETTING PATH   /////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+
+To clone the repository into your linux envirnoment. run:
+
+git clone https://github.com/dheavin786/AdvancedKDB.git
+
+This will create a folder called "AdvancedKDB"
+
+Set the path to this folder as $AdvancedKDB using:
+
+export AdvancedKDB="$(dirname "$dir")"
+
+///////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////     EXERCISE 1 - TICK       /////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////   EXERCISE 1 - PART 1 - TICKERPLANT   /////////////////////////////
+$AdvancedKDB/tick.q
+
+
+Manual Commands to run tickerplant________________
+
+In a linux envirnoment inside "AdvancedKDB" run:
+
+-sh-4.1$ export AdvancedKDB="$(dirname "$dir")"
+-sh-4.1$ export tpPort=6000
+-sh-4.1$ echo $tpPort
+6000
+-sh-4.1$ q $AdvancedKDB/tick.q sym . -p $tpPort
+
+___________________________________________________
+
+
+/////////////////////////////   EXERCISE 1 - PART 2 - RDB   /////////////////////////////
+$AdvancedKDB/tick/rdbTQ.q
+$AdvancedKDB/tick/rdbAGG.q
+
+Manual Commands to run the Trade/Quote and aggregation RDBs________________
+
+In a linux envirnoment inside "advancedKDB" run:
+
+-sh-4.1$ export AdvancedKDB="$(dirname "$dir")"
+-sh-4.1$ export tpPort=6000
+-sh-4.1$ echo $tpPort
+6000
+-sh-4.1$ q $AdvancedKDB/tick/rdbTQ.q localhost:$tpPort
+
+-sh-4.1$ export AdvancedKDB="$(dirname "$dir")"
+-sh-4.1$ export tpPort=6000
+-sh-4.1$ echo $tpPort
+6000
+-sh-4.1$ q $AdvancedKDB/tick/rdbAGG.q localhost:$tpPort
+
+___________________________________________________
+
+//////////////////////////   EXERCISE 1 - PART 3 - FEEDHANDLER  /////////////////////////////
+$AdvancedKDB/tick/feed.q
+
+Manual Commands to run the Feedhandler________________
+
+In a linux envirnoment inside "AdvancedKDB" run:
+
+-sh-4.1$ export AdvancedKDB="$(dirname "$dir")"
+-sh-4.1$ export tpPort=6000
+-sh-4.1$ echo $tpPort
+6000
+-sh-4.1$ q $AdvancedKDB/tick/feedhandler.q
+___________________________________________________
+
+//////////////////////////   EXERCISE 1 - PART 4 - CEP  /////////////////////////////
+$AdvancedKDB/tick/cep.q
+
+Manual Commands to run the Complex Event Processor________________
+
+In a linux envirnoment inside "AdvancedKDB" run:
+
+-sh-4.1$ export AdvancedKDB="$(dirname "$dir")"
+-sh-4.1$ export tpPort=6000
+-sh-4.1$ echo $tpPort
+6000
+-sh-4.1$ q $AdvancedKDB/tick/cep.q localhost:$tpPort
+___________________________________________________
+
+//////////////////////////   EXERCISE 1 - PART 5 - LOGGING  /////////////////////////////
+$AdvancedKDB/logging.q
+
+The logging script is located here: 
+
+$AdvancedKDB/logging.q
+
+The logs themselves are located here:
+
+$AdvancedKDB/logs
+
+
+//////////////////////////   EXERCISE 1 - PART 6 - STARTUP/SHUTDOWN SCRIPTS  /////////////////////////////
+$AdvancedKDB/scripts/start.sh
+$AdvancedKDB/scripts/test.sh
+$AdvancedKDB/scripts/stop.sh
+
+
+
+
+To use these scripts, first ensure there are no processes running on the port we have chosen to use: 6000, you can always change this port for another in AdvancedKDB/scripts/config
+
+Also in scripts/config.sh, make sure Q (the q home directory) and q (the q executable has been set)
+
+To start the processes run (you will get the option of which ones you would like to start):
+
+bash start.sh
+
+To test the processes run  (you will get the option of which ones you would like to stop):
+
+bash stop.sh
+
+To test the processes run:
+
+bash test.sh
+
+//////////////////////////   EXERCISE 1 - PART 7 -TICKERPLANT LOG REPLAY  /////////////////////////////
+$AdvancedKDB/IBMtrade.q
+
+The tickerplant logs will be in the folder "scripts"
+$advancedKDB/scripts
+
+Tickerplant log replay:
+
+
+QUESTION: Write a script that reads in a tickerplant log file which contains trade and quote updates and creates a new tickerplant log file which only contains the trade updates for ibm.n.
+
+q IBMtrade.q scripts/sym2022.05.17
+//////////////////////////   EXERCISE 1 - PART 8 - CSV FILE LOAD  /////////////////////////////
+$advancedKDB/CSVReader.q
+
+QUESTION: Create a script that will load a csv file and publish the contents to the Ticker plant.
+
+How to start a q session with this script:
+
+q CSVReader.q [table] [csv file] [port number]
+
+q CSVReader.q trade trade.csv 6000
+
+//////////////////////////   EXERCISE 1 - PART 9 - HDB  /////////////////////////////
+$advancedKDB/tick/hdb.q
+
+MOVE INTO THE "TICK" DIRECTORY: $advancedKDB/tick/
+
+QUESTION: Write a script which will take the Ticker Plant log and create a daily partitioned HDB in which all columns are compressed with the exception of sym and time.
+
+For E0D process:
+
+q hdb.q ../scripts/sym2022.05.17
+
+//////////////////////////   EXERCISE 1 - PART 10 - SCHEMA CHANGE   /////////////////////////////
+https://github.com/mannixm/advancedKDB/blob/main/schemaChange.txt
+
+QUESTION: Discuss the effect a schema change to the trade table in the above system e.g. a sequence number column was added to both trade and quote tables.
+
+Current feedhandler would keep inserting data with a missing column unless updated
+
+QUESTION: How you would plan a turnover to update the schema.
+
+Wait until the end of day and ensure all the data has been saved down to the HDB
+Use the addcol function of dbmaint.q
+Backup the sym file
+Add the column to the trade and quote table using the addcol function of dbmaint.qChange the .d file as necessary to reflect the new column and/or new order
+You may wish to go back and add in nulls to the previous data for the new column, (I'm not sure of dbmaint does this)
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////   EXERCISE 2 - DEBUGGING    /////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////   EXERCISE 2 - PART 1    /////////////////////////////
+QUESTION: The below tickerplant log contains and error. a) Locate the error b) Fix the error Show how each was performed
+
+LINK TO ANSWER: https://github.com/mannixm/advancedKDB/blob/main/question2/db/tplogIssues.txt
+
+
+/////////////////////////////   EXERCISE 2 - PART 2    /////////////////////////////
+
+QUESTION: The 3 tables in the below zip file contain errors. Try to ascertain the error and recommend a suitable fix for each.
+
+LINK TO ANSWER: https://github.com/mannixm/advancedKDB/blob/main/question2/db/fileIssues.txt
+
+/////////////////////////////   EXERCISE 2 - PART 3    /////////////////////////////
+
+QUESTION: In your current system you have a historical database and a single hdb kdb+ instance to host user queries. Users are complaining about slowness. What is the probable cause of the slowness and suggest 2 changes that could be made to alleviate the problem. Maintain a single entry point to the system if possible
+
+LINK TO ANSWER: https://github.com/mannixm/advancedKDB/blob/main/question2/db/fasterhdb.txt
+
+/////////////////////////////   EXERCISE 2 - PART 4    /////////////////////////////
+
+QUESTION: Improve the performance of function StringtoDate:{[x]{$[10h~abs type x;x:"D"$x;-14h~ type x;x:x;`date$x]}'[x]} given input: raze 500000#enlist("2010.01.01";2010.01.02). Do not use .Q.fu.
+
+LINK TO ANSWER: https://github.com/mannixm/advancedKDB/blob/main/question2/db/fasterquery.txt
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////      EXERCISE 3 - API       /////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////   EXERCISE 3 - PART 1 - PYTHON API    /////////////////////////////
+$advancedKDB/question3/pythonAPI/CSVReader.py
+
+For the python API navigate to:
+
+advancedKDB/question3/pythonAPI/
+
+Change the hostname and port and csv filepath to match the setup you have been using in: advancedKDB/question3/pythonAPI/CSVReader.py
+
+python CSVReader.py
+
+/////////////////////////////   EXERCISE 3 - PART 2 - JAVA API    /////////////////////////////
+$advancedKDB/question3/javaApi/src/main/java/kx/examples/Feed.java
+
+For the java API navigate to:
+
+advancedKDB/question3/javaApi/
+
+Change the hostname and port and csv filepath to match the setup you have been using in advancedKDB/question3/javaApi/src/main/java/kx/examples/Feed.java
+
+mkdir -p build/classes
+javac -d build/classes src/main/java/kx/c.java
+javac -d build/classes -cp build/classes src/main/java/kx/examples/Feed.java
+java -cp build/classes kx.examples.Feed
+
+/////////////////////////////   EXERCISE 3 - PART 3 - WEBSOCKET    /////////////////////////////
+$advancedKDB/question3/websocket.html
+
+With the tickerplant running, edit the hostname and port to the ones you are using in: advancedKDB/blob/main/question3/websocket.html
+
+Open websocket.html in a browser, connect and type in the name of the ticker you are searching for e.g. GS.N
+
+
