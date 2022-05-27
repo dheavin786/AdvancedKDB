@@ -1,13 +1,8 @@
 / q tick.q sym . -p 5011 1>>tick.log 2>&1 &
 /q tick.q SRC [DST] [-p 5010] [-o h]
 
-/i changed this 
-/system raze["l ",getenv[`advancedKDB],"/tick/sym.q"]
-/system"l ",getenv[`advancedKDB],"/tick/",(src:first .z.x,enlist"sym"),".q"
 
 system "l /home/local/FD/dheavin/AdvancedKDB/tick/sym.q"
-
-'INSIDEbreak;
 
 if[not system"p";system"p 5010"]
 
