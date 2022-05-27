@@ -4,8 +4,10 @@
 \p 7007
 .z.ws:{neg[.z.w] .Q.s[select from trade where sym=`$x]};
 
+//Changing this
+//system raze["l ",getenv[`advancedKDB],"/logging.q"]
 
-system raze["l ",getenv[`advancedKDB],"/logging.q"]
+system "l /home/local/FD/dheavin/AdvancedKDB/logging.q"
 
 if[not "w"=first string .z.o;system "sleep 1"];
 
