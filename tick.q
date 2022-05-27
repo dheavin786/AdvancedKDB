@@ -1,9 +1,9 @@
 / q tick.q sym . -p 5011 1>>tick.log 2>&1 &
 /q tick.q SRC [DST] [-p 5010] [-o h]
 
-//i changed this 
-//system raze["l ",getenv[`advancedKDB],"/tick/sym.q"]
-//system"l ",getenv[`advancedKDB],"/tick/",(src:first .z.x,enlist"sym"),".q"
+/i changed this 
+/system raze["l ",getenv[`advancedKDB],"/tick/sym.q"]
+/system"l ",getenv[`advancedKDB],"/tick/",(src:first .z.x,enlist"sym"),".q"
 
 system raze["l /home/local/FD/dheavin/AdvancedKDB/tick/sym.q"]
 
@@ -11,9 +11,9 @@ system raze["l /home/local/FD/dheavin/AdvancedKDB/tick/sym.q"]
 
 if[not system"p";system"p 5010"]
 
-//I CHANGED THHIS
-//system raze["l ",getenv[`advancedKDB],"/logging.q"]
-//system raze["l ",getenv[`advancedKDB],"/tick/u.q"]
+/I CHANGED THHIS
+/system raze["l ",getenv[`advancedKDB],"/logging.q"]
+/system raze["l ",getenv[`advancedKDB],"/tick/u.q"]
 
 system raze["l /home/local/FD/dheavin/AdvancedKDB/logging.q"]
 system raze["l /home/local/FD/dheavin/AdvancedKDB/tick/u.q"]
