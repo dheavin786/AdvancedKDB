@@ -1,14 +1,16 @@
 /q tick/r.q [host]:port[:usr:pwd] [host]:port[:usr:pwd]
 /2008.09.09 .k ->.q
 
-system raze["l ",getenv[`advancedKDB],"/logging.q"]
+//system raze["l ",getenv[`advancedKDB],"/logging.q"]
+
+system "l /home/local/FD/dheavin/AdvancedKDB/logging.q"
 
 if[not "w"=first string .z.o;system "sleep 1"];
 
 upd:{if[x in `aggregation; x insert y]}
 
 / get the ticker plant and history ports, defaults are 5010,5012
-.u.x:.z.x,(count .z.x)_(":5010";":5012");
+.u.x:.z.x,(count .z.x)_(":5001";":5012");
 
 / end of day: save, clear, hdb reload
 .u.end:{t:tables`.;t@:where `g=attr each t@\:`sym;.Q.hdpf[`$":",.u.x 1;`:.;x;`sym];@[;`sym;`g#] each t;};
