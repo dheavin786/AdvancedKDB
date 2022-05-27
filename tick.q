@@ -8,7 +8,8 @@
 system "l /home/local/FD/dheavin/AdvancedKDB/tick/sym.q"
 system "l /home/local/FD/dheavin/AdvancedKDB/tick/",(src:first .z.x,enlist"sym"),".q"
 
-if[not system"p";system"p 5010"]
+//if[not system"p";system"p 5010"]
+if[not system"p";system"p 5001"]
 
 //I CHANGED THIS
 //system raze["l ",getenv[`advancedKDB],"/logging.q"]
