@@ -63,4 +63,4 @@ if[not system"t";system"t 1000";
 >q tick.q sym  .  -p 5001       /tick
 >q tick/r.q :5010 -p 5011       /rdb
 >q sym            -p 5012       /hdb
->q tick/ssl.q sym :5010         /feed
+>q tick/ssl.q sym :5001         /feed
