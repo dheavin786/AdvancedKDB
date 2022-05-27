@@ -7,7 +7,7 @@
 
 system "l /home/local/FD/dheavin/AdvancedKDB/tick/sym.q"
 
-
+'INSIDEbreak;
 
 if[not system"p";system"p 5010"]
 
