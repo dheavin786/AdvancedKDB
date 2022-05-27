@@ -5,7 +5,7 @@
 //system raze["l ",getenv[`advancedKDB],"/tick/sym.q"]
 //system"l ",getenv[`advancedKDB],"/tick/",(src:first .z.x,enlist"sym"),".q"
 
-system raze[\"l /home/local/FD/dheavin/AdvancedKDB/tick/sym.q"]
+system raze["l /home/local/FD/dheavin/AdvancedKDB/tick/sym.q"]
 
 
 
