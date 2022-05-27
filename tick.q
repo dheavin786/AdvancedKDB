@@ -1,5 +1,5 @@
 / q tick.q sym . -p 5011 1>>tick.log 2>&1 &
-/q tick.q SRC [DST] [-p 5010] [-o h]
+/q tick.q SRC [DST] [-p 5001] [-o h]
 
 //Changed these
 //system raze["l ",getenv[`advancedKDB],"/tick/sym.q"]
