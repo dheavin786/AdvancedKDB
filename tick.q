@@ -14,8 +14,8 @@ if[not system"p";system"p 5010"]
 /system raze["l ",getenv[`advancedKDB],"/logging.q"]
 /system raze["l ",getenv[`advancedKDB],"/tick/u.q"]
 
-system raze["l /home/local/FD/dheavin/AdvancedKDB/logging.q"]
-system raze["l /home/local/FD/dheavin/AdvancedKDB/tick/u.q"]
+//system raze["l /home/local/FD/dheavin/AdvancedKDB/logging.q"]
+//system raze["l /home/local/FD/dheavin/AdvancedKDB/tick/u.q"]
 
 
 
