@@ -5,8 +5,8 @@
 /system raze["l ",getenv[`advancedKDB],"/tick/sym.q"]
 /system"l ",getenv[`advancedKDB],"/tick/",(src:first .z.x,enlist"sym"),".q"
 
-
-system \"l /home/local/FD/dheavin/AdvancedKDB/tick/sym.q\"
+system "l /tick/sym.q"
+//system "l /home/local/FD/dheavin/AdvancedKDB/tick/sym.q"
 
 if[not system"p";system"p 5010"]
 
