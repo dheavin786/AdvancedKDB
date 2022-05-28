@@ -18,14 +18,14 @@ echo "Enter y to run the Trade/Quote RDB (y/n)?"
 read rTQbool
 
 if [ "$rTQbool" = "y" ]; then
-    nohup $q $advancedKDB/tick/rTQ.q localhost:$tpPort 1>>$advancedKDB/logs/rTQ.log 2>&1 &
+    nohup $q $advancedKDB/tick/rTQ.q localhost:$tpPort 1>>$advancedKDB/logs/rdbTQ.log 2>&1 &
 fi
 
 echo "Enter y to run the Aggregation RDB (y/n)?"
 read rAGGbool
 
 if [ "$rAGGbool" = "y" ]; then
-        nohup $q $advancedKDB/tick/rAGG.q localhost:$tpPort 1>>$advancedKDB/logs/rAGG.log 2>&1 &
+        nohup $q $advancedKDB/tick/rAGG.q localhost:$tpPort 1>>$advancedKDB/logs/rdbAGG.log 2>&1 &
 fi
 
 echo "Enter y to run the Start CEP (y/n)?"
