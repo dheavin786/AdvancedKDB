@@ -3,4 +3,4 @@ export dir=${PWD}
 export advancedKDB="$(dirname "$dir")"
 export Q=$QHOME
 export q=$QHOME"q"
-export tpPort=6000
+export tpPort=6001
