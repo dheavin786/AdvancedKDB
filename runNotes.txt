@@ -10,7 +10,7 @@ This will create a folder called "AdvancedKDB"
 
 Set the path to this folder as $AdvancedKDB using:
 
-export advancedKDB="$(dirname "$dir")"
+export AdvancedKDB="$(dirname "$dir")"
 
 ///////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////     EXERCISE 1 - TICK       /////////////////////////////
