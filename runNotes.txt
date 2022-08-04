@@ -25,9 +25,9 @@ Manual Commands to run tickerplant________________
 In a linux envirnoment inside "AdvancedKDB" run:
 
 -sh-4.1$ export AdvancedKDB="$(dirname "$dir")"
--sh-4.1$ export tpPort=6000
+-sh-4.1$ export tpPort=6001
 -sh-4.1$ echo $tpPort
-6000
+6001
 -sh-4.1$ q $AdvancedKDB/tick.q sym . -p $tpPort
 
 ___________________________________________________
@@ -42,15 +42,15 @@ Manual Commands to run the Trade/Quote and aggregation RDBs________________
 In a linux envirnoment inside "AdvancedKDB" run:
 
 -sh-4.1$ export AdvancedKDB="$(dirname "$dir")"
--sh-4.1$ export tpPort=6000
+-sh-4.1$ export tpPort=6001
 -sh-4.1$ echo $tpPort
-6000
+6001
 -sh-4.1$ q $AdvancedKDB/tick/rTQ.q localhost:$tpPort
 
 -sh-4.1$ export AdvancedKDB="$(dirname "$dir")"
--sh-4.1$ export tpPort=6000
+-sh-4.1$ export tpPort=6001
 -sh-4.1$ echo $tpPort
-6000
+6001
 -sh-4.1$ q $AdvancedKDB/tick/rAGG.q localhost:$tpPort
 
 ___________________________________________________
@@ -63,9 +63,9 @@ Manual Commands to run the Feedhandler________________
 In a linux envirnoment inside "AdvancedKDB" run:
 
 -sh-4.1$ export AdvancedKDB="$(dirname "$dir")"
--sh-4.1$ export tpPort=6000
+-sh-4.1$ export tpPort=6001
 -sh-4.1$ echo $tpPort
-6000
+6001
 -sh-4.1$ q $AdvancedKDB/tick/feed.q
 ___________________________________________________
 
@@ -77,9 +77,9 @@ Manual Commands to run the Complex Event Processor________________
 In a linux envirnoment inside "AdvancedKDB" run:
 
 -sh-4.1$ export AdvancedKDB="$(dirname "$dir")"
--sh-4.1$ export tpPort=6000
+-sh-4.1$ export tpPort=6001
 -sh-4.1$ echo $tpPort
-6000
+6001
 -sh-4.1$ q $AdvancedKDB/tick/cep.q localhost:$tpPort
 ___________________________________________________
 
@@ -140,7 +140,7 @@ How to start a q session with this script:
 
 q CSVReader.q [table] [csv file] [port number]
 
-q CSVReader.q trade trade.csv 6000
+q CSVReader.q trade trade.csv 6001
 
 //////////////////////////   EXERCISE 1 - PART 9 - HDB  /////////////////////////////
 $AdvancedKDB/tick/hdb.q
