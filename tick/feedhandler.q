@@ -1,6 +1,6 @@
 h:neg hopen hsym `$(raze[("localhost:",getenv[`tpPort])]) /connect to tickerplant
-//system raze["l ",getenv[`advancedKDB],"/logging.q"]
-system "l /home/local/FD/dheavin/AdvancedKDB/logging.q"
+//system raze["l ",getenv[`AdvancedKDB],"/logging.q"]
+system "l /home/local/FD/dheavin786/AdvancedKDB/logging.q"
 syms:`GOOG`APPL`IBM`MSFT`NVDA /stocks
 prices:syms!58.96 123.65 98.40 110.56 132.45 /starting prices
 n:3 /number of rows per update
