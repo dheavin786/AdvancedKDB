@@ -1,8 +1,0 @@
-QUESTION: In your current system you have a historical database and a single hdb kdb+ instance to host user queries. Users are complaining about slowness. What is the probable cause of the slowness and suggest 2 changes that could be made to alleviate the problem. Maintain a single entry point to the system if possible
-
-https://code.kx.com/q4m3/14_Introduction_to_Kdb+/#144-segmented-tables
-https://code.kx.com/q/database/segment/
-https://code.kx.com/q/wp/multi-thread/
-
-Multi-threaded HDB start additional slaves with on command line with "-s", use peach or .Q.fc to distribute the work
-Segmented HDB, a query can make use of multiple I/O channels and associated bandwidth and hence pull data concurrently. Segmentation spreads a partitioned table’s records across multiple directories, the segment directories can be placed on independent I/O channels so that data retrieval can occur in parallel.
